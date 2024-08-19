@@ -24,7 +24,7 @@ function App() {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/sasha/birthday/social/network', {
+      const response = await fetch('https://sasha-birthday-social-network.onrender.com/sasha/birthday/social/network', {
         method: 'POST',
         body: formData,
       });
