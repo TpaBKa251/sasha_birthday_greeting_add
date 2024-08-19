@@ -8,9 +8,11 @@ function App() {
   const [video, setVideo] = useState(null);
   const [imageName, setImageName] = useState('Изображение');
   const [videoName, setVideoName] = useState('Видео');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     const formData = new FormData();
     formData.append('name', name);
@@ -44,11 +46,19 @@ function App() {
     } catch (error) {
       console.error('Error:', error);
       alert('Поломалося. Попробуй еще раз');
+    } finally {
+      setIsSubmitting(false); // Возвращаем состояние загрузки в false после завершения отправки
+      window.location.reload();
     }
-
-    window.location.reload();
   };
   return (
+      <div>
+        {isSubmitting ? (
+            <div className="loading-screen">
+              <div className="loader"></div>
+              <p>Sending your greeting...</p>
+            </div>
+        ) : (
       <div className="app-container">
         <h1 className="title">Напишите поздравление Саше</h1>
         <h2>Необходимо написать имя, поздравление и пожелания, фото и видео - по желанию</h2>
@@ -101,8 +111,9 @@ function App() {
           </div>
           <button type="submit" className="submit-button">Отправить</button>
         </form>
-      </div>
-  );
+      </div>)
+
+        }</div>);
 }
 
 export default App;
