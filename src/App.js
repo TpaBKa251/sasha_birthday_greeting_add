@@ -61,7 +61,7 @@ function App() {
         ) : (
       <div className="app-container">
         <h1 className="title">Напишите поздравление Саше</h1>
-        <h2>Необходимо написать имя, поздравление и пожелания, фото и видео - по желанию</h2>
+        <h2>Необходимо написать ваше имя, поздравление и пожелания, фото и видео - уже нельзя(</h2>
         <form className="greeting-form" onSubmit={handleSubmit}>
           <input
               type="text"
@@ -78,37 +78,37 @@ function App() {
               required
               className="textarea-field"
           />
-          <div className="file-input-container">
-            <label htmlFor="image-input" className="custom-file-label">
-              {imageName}
-            </label>
-            <input
-                id="image-input"
-                type="file"
-                accept="image/*"
-                onChange={(e) => {
-                  setImage(e.target.files[0]);
-                  setImageName(e.target.files[0] ? e.target.files[0].name : 'Choose an image');
-                }}
-                className="file-input"
-            />
-          </div>
+          {/*<div className="file-input-container">*/}
+          {/*  <label htmlFor="image-input" className="custom-file-label">*/}
+          {/*    {imageName}*/}
+          {/*  </label>*/}
+          {/*  <input*/}
+          {/*      id="image-input"*/}
+          {/*      type="file"*/}
+          {/*      accept="image/*"*/}
+          {/*      onChange={(e) => {*/}
+          {/*        setImage(e.target.files[0]);*/}
+          {/*        setImageName(e.target.files[0] ? e.target.files[0].name : 'Choose an image');*/}
+          {/*      }}*/}
+          {/*      className="file-input"*/}
+          {/*  />*/}
+          {/*</div>*/}
 
-          <div className="file-input-container">
-            <label htmlFor="video-input" className="custom-file-label">
-              {videoName}
-            </label>
-            <input
-                id="video-input"
-                type="file"
-                accept="video/*"
-                onChange={(e) => {
-                  setVideo(e.target.files[0]);
-                  setVideoName(e.target.files[0] ? e.target.files[0].name : 'Choose a video');
-                }}
-                className="file-input"
-            />
-          </div>
+          {/*<div className="file-input-container">*/}
+          {/*  <label htmlFor="video-input" className="custom-file-label">*/}
+          {/*    {videoName}*/}
+          {/*  </label>*/}
+          {/*  <input*/}
+          {/*      id="video-input"*/}
+          {/*      type="file"*/}
+          {/*      accept="video/*"*/}
+          {/*      onChange={(e) => {*/}
+          {/*        setVideo(e.target.files[0]);*/}
+          {/*        setVideoName(e.target.files[0] ? e.target.files[0].name : 'Choose a video');*/}
+          {/*      }}*/}
+          {/*      className="file-input"*/}
+          {/*  />*/}
+          {/*</div>*/}
           <button type="submit" className="submit-button">Отправить</button>
         </form>
       </div>)
